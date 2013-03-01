@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>{% block title %}{{ title | d('school9.perm.ru') }}{% endblock %}</title>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="school9.perm.ru - сайт школы №9 г. Перми">
+  <meta name="author" content="Alex Ankudinov">
+  
+  {% block stylesheets %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.min.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='dynatree/skin/ui.dynatree.css') }}">
+  {% endblock stylesheets %} 
+
+  <script src="{{ url_for('static', filename='js/modernizr.foundation.js') }}"></script>
+</head>
+<body>
+  {% include 'inc/message-flashing.html' %}
+  
+  {% block layout_body %}
+  {% endblock layout_body %}
+
+  {% block scripts %} 
+      <!-- Included JS Files (Compressed) -->
+      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/foundation.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/jquery-ui.custom.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/jquery.cookie.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/jquery.dynatree.min.js') }}"></script>
+        
+      <!-- Initialize Foundation JS Plugins -->
+      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+      
+      <!-- Wiki9 js code !-->
+      <script src="{{ url_for('static', filename='js/wiki9.js') }}"></script>
+  {% endblock scripts %}
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+{% macro validation_rules(form) -%}
+    {
+    {%- for field in form if field.type not in ['HiddenField', 'CSRFTokenField'] %}
+        {{ field.name }}: {
+        {%- for v in field.validators %}
+            {% set type = v.__class__.__name__ -%}
+            {%- if type == 'Email' -%} email: true,
+            {%- elif type == 'EqualTo' -%} equalTo: "#{{- v.fieldname -}}",
+            {%- elif type == 'Required' -%} required: true,
+            {%- elif type == 'Regexp' -%} regex: "{{- v.regex.pattern -}}",
+            {%- elif type == 'Length' and v.min == -1 -%} maxlength: {{ v.max }},
+            {%- elif type == 'Length' and v.max == -1 -%} minlength: {{ v.min }},
+            {%- elif type == 'Length' -%} rangelength: {{ [v.min,v.max] | pprint }},
+            {%- endif -%}
+        {%- endfor %}
+        },
+    {%- endfor %}
+    }
+{%- endmacro %}
+
+{% macro validation_script(form, select) -%}
+    <script>
+        $(document).ready(function(){
+            $("{{- select -}}").validate({
+                rules: {{- validation_rules(form) -}} 
+            });
+        });
+    </script>
+{%- endmacro %}
+
+{% macro render_fields(form) -%}
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.type not in ['HiddenField', 'CSRFTokenField'] %}
+        {% if field.type == 'BooleanField' %}
+            <label class="checkbox">{{ field() }}{{ field.label }}</label>
+        {% else %}
+            <label>{{ field.label }}</label>
+            {{ field() }}
+        {% endif %}
+    {% endfor %}
+        
+    <label></label>
+{%- endmacro %}
+
+

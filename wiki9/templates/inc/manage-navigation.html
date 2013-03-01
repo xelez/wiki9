@@ -1,0 +1,24 @@
+  <nav class="top-bar fixed">
+    <ul>
+      <li class="name"><h1><a href="{{ url_for('index') }}">school9.perm.ru</a></h1></li>
+      <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+
+    <section>
+      <ul class="left">
+        {#<li class="active"><a href="/news/">Новости</a></li>#}
+        <li><a href="{{ url_for('list_pages') }}">Список страниц</a></li>
+        <li><a href="{{ url_for('file_manager') }}">Файлы</a></li>
+      </ul>
+    </section>
+
+    {% if is_root() %}
+        <section>
+          <ul class="right">
+            <li><a href="{{ url_for('logout') }}">Выйти</a></li>
+          </ul>
+        </section>
+    {% endif %}
+
+  </nav><br><br><br>
+

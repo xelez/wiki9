@@ -1,0 +1,15 @@
+{% extends 'layout/site.html' %}
+
+{% block main %}
+  <div class="row" >
+    <div id="sidenav" class="two columns">
+        {% include 'inc/sidenav.html' %}
+    </div>
+    <div class="ten columns" role="content">
+        <div class="row">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div> 
+  </div>
+{% endblock main %}

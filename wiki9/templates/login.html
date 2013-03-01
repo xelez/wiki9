@@ -1,0 +1,15 @@
+{% extends 'layout/site.html' %}
+{% import '_forms.html' as forms %}
+
+{% block content %}
+<div class="six columns centered">
+    <div class="panel callout radius">
+        <h5>Войти</h5>
+        <form action="" method="POST" class="form">
+            {{- forms.render_fields(form) -}}
+        
+             <button type="submit" class="secondary button">Войти</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

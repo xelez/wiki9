@@ -1,0 +1,98 @@
+{% extends 'layout/manage.html' %}
+
+{% block content %}
+<div class="twelve columns">
+    <form id="edit_form" action="" method="POST" class="form">
+    {{ form.hidden_tag() }}
+    {{ form.content(id="content_textarea", style="display: none;")}}
+    
+    <div class="row collapse">
+        <div class="ten mobile-three columns">
+            {{ form.path(placeholder="/path/to/page") }}
+        </div>
+        <div class="two mobile-one columns">
+            <button type="submit" class="button expand postfix">Сохранить</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            {{ form.title(placeholder="Название") }}
+        </div>
+        <div class="six columns">
+            <dl class="tabs">
+              <dd class="active"><a href="#preview">Предпросмотр</a></dd>
+              <dd><a href="#html">HTML</a></dd>
+              <dd><a href="#help">Справка</a></dd>
+            </dl>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            <div class="ace_editor_wrapper">
+                <div id="content_ace_editor"></div>
+            </div>
+        </div>
+        <div class="six columns"><div class="ace_editor_preview">
+            <ul class="tabs-content">
+              <li class="active" id="previewTab">
+                <div id="content"></div>
+              </li>
+              <li id="htmlTab">
+                <textarea id="content_html" readonly>
+                </textarea>
+              </li>
+              <li id="helpTab">
+                {% include 'doc/markdown.html' %}
+              </li>
+            </ul>
+        </div></div>
+    </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='ace/ace.js') }}"></script>
+    
+    <script language="javascript">
+        var textarea = $('#content_textarea');
+
+        var editor = ace.edit("content_ace_editor");
+        editor.setTheme("ace/theme/chrome");
+        editor.getSession().setMode("ace/mode/markdown");
+        editor.getSession().setUseWrapMode(true);
+        editor.setShowInvisibles(true);
+
+        editor.getSession().setValue(textarea.val());
+
+        $('#edit_form').submit(function() {
+            textarea.val(editor.getSession().getValue());
+            return True;
+        })
+
+        // preview from server
+        var refresh_delay = 1800;
+        var preview_url = '{{ url_for('ajax_preview') }}';
+        var delayTimer;
+
+        function update_preview() {
+            $.post(preview_url,
+                { markdown : editor.getSession().getValue() },
+                function(data) {
+                    $('#content').html(data);
+                    $('#content_html').val(data);
+                }
+            )
+        }
+
+        update_preview();
+
+        editor.getSession().on('change', function(){
+            clearTimeout(delayTimer);
+            delayTimer = setTimeout(update_preview, refresh_delay);
+        });
+
+    </script>
+    
+{% endblock scripts %}

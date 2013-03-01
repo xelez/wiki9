@@ -1,0 +1,16 @@
+{% extends 'layout/base.html' %}
+
+{% block layout_body %}
+  {% include 'inc/header.html' %}
+
+  {% block main %}
+  <div class="row">
+    {% block content %}
+    {% endblock content %}
+  </div>
+  {% endblock main %}
+  
+  {% block footer %}
+     {% include 'inc/footer.html' %}
+  {% endblock %}
+{% endblock layout_body %}
