@@ -1,29 +1,18 @@
 {% extends 'layout/with_sidebar.html' %}
 
 {% block content %}
-
-<div class="twelve columns">
-    <div class="row">
-        <div class="nine columns">
-            <ul id="breadcrumbs" class="breadcrumbs">
-            {% for t in page['breadcrumbs'] if (t is defined) %}
-                <li {{'class=current' if loop.last}}><a href="{{ url_for('show_page', path=t['path']) }}">{{ t['title'] }}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
-        <div class="three columns">
-            {% if is_root() %}
-                <ul class="button-group radius right">
-                    <li><a href="{{ url_for('edit_page', path=page['path']) }}" class="tiny radius button">Редактировать</a></li>
-                    <li><a href="{{ url_for('delete_page', path=page['path']) }}" class="tiny raduis button">Удалить</a></li>
-                </ul>
-            {% endif %}
-        </div>
+    <ul id="breadcrumbs" class="breadcrumbs left">
+    {% for t in page['breadcrumbs'] if (t is defined) %}
+        <li {{'class=current' if loop.last}}><a href="{{ url_for('show_page', path=t['path']) }}">{{ t['title'] }}</a></li>
+    {% endfor %}
+    </ul>
+    {% if is_root() %}
+        <ul class="button-group radius right">
+            <li><a href="{{ url_for('edit_page', path=page['path']) }}" class="tiny radius button">Редактировать</a></li>
+            <li><a href="{{ url_for('delete_page', path=page['path']) }}" class="tiny raduis button">Удалить</a></li>
+        </ul>
+    {% endif %}
+    <div id="content" class="twelve columns">
+    {{ page["html"] | safe }}
     </div>
-    <div class="row">
-        <div id="content" class="twelve columns">
-        {{ page["html"] | safe }}
-        </div>
-    </div>
-</div>
 {% endblock content %}
