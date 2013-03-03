@@ -3,12 +3,8 @@
 {% block layout_body %}
   {% include 'inc/manage-navigation.html' %}
 
-  {% block main %}
-  <div class="row">
-    {% block content %}
-    {% endblock content %}
-  </div>
-  {% endblock main %}
+  {% block content %}
+  {% endblock content %}
   
   {% include 'inc/footer.html' %}
 {% endblock layout_body %}
