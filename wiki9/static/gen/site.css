@@ -5572,25 +5572,39 @@ footer #footer_links, footer #copyright {
   float: left;
 }
 
+/* line 49, ../scss/app.scss */
+#main_container {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 83.33333%;
+  float: left;
+}
+
 /* Sidenav */
-/* line 50, ../scss/app.scss */
+/* line 54, ../scss/app.scss */
 div#sidenav {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 16.66667%;
+  float: left;
   padding: 0;
   border-right: 5px solid #f89f75;
   border-bottom: 4px solid #f89f75;
 }
-/* line 55, ../scss/app.scss */
+/* line 60, ../scss/app.scss */
 div#sidenav ul {
   list-style: none outside none;
   display: block;
   height: auto;
   padding: 0;
 }
-/* line 62, ../scss/app.scss */
+/* line 67, ../scss/app.scss */
 div#sidenav > ul {
   margin: 0;
 }
-/* line 65, ../scss/app.scss */
+/* line 70, ../scss/app.scss */
 div#sidenav > ul > li {
   display: block;
   float: none;
@@ -5598,21 +5612,21 @@ div#sidenav > ul > li {
   border-left: 4px solid #9b350b;
   border-right: 1px solid #9b350b;
 }
-/* line 72, ../scss/app.scss */
+/* line 77, ../scss/app.scss */
 div#sidenav > ul > li:last-child {
   border-bottom: 1px solid #9b350b;
 }
-/* line 76, ../scss/app.scss */
+/* line 81, ../scss/app.scss */
 div#sidenav > ul > li.active {
   border-bottom: 1px solid #9b350b;
 }
-/* line 79, ../scss/app.scss */
+/* line 84, ../scss/app.scss */
 div#sidenav > ul > li.active > a {
   background-color: #9B350B;
   border-bottom: none;
   color: #FEDDBE;
 }
-/* line 86, ../scss/app.scss */
+/* line 91, ../scss/app.scss */
 div#sidenav > ul > li > a {
   display: block;
   border-bottom: 1px solid #feddbe;
@@ -5623,24 +5637,24 @@ div#sidenav > ul > li > a {
   line-height: 1;
   padding: 10px 15px;
 }
-/* line 87, ../scss/app.scss */
+/* line 92, ../scss/app.scss */
 div#sidenav > ul > li > a:hover {
   background-color: #F8A076;
 }
 
-/* line 104, ../scss/app.scss */
+/* line 109, ../scss/app.scss */
 #sidenav ul ul li a:hover {
   color: #9B350B;
 }
 
-/* line 108, ../scss/app.scss */
+/* line 113, ../scss/app.scss */
 #sidenav ul ul li.active > a {
   color: #9B350B;
   font-weight: bold;
   text-decoration: none;
 }
 
-/* line 114, ../scss/app.scss */
+/* line 119, ../scss/app.scss */
 #sidenav ul ul li a {
   font-size: 11px;
   text-decoration: underline;
@@ -5648,26 +5662,26 @@ div#sidenav > ul > li > a:hover {
 }
 
 /* Breadcrumbs */
-/* line 122, ../scss/app.scss */
+/* line 127, ../scss/app.scss */
 ul#breadcrumbs {
   padding: 6px 10px 7px 0;
   border: none;
   background: none;
 }
-/* line 128, ../scss/app.scss */
+/* line 133, ../scss/app.scss */
 ul#breadcrumbs li a, ul#breadcrumbs li span {
   font-size: 1.8rem;
   font-weight: bold;
   text-transform: none;
 }
-/* line 134, ../scss/app.scss */
+/* line 139, ../scss/app.scss */
 ul#breadcrumbs li.current a {
   text-decoration: none;
   color: #000000;
 }
 
 /* Ace eitor */
-/* line 143, ../scss/app.scss */
+/* line 148, ../scss/app.scss */
 .ace_editor_wrapper {
   border: 1px solid #dddddd;
   border-radius: 4px 4px 0 4px;
@@ -5676,7 +5690,7 @@ ul#breadcrumbs li.current a {
   position: relative;
 }
 
-/* line 151, ../scss/app.scss */
+/* line 156, ../scss/app.scss */
 .ace_editor_preview {
   height: 512px;
   margin-top: 1px;
@@ -5684,12 +5698,12 @@ ul#breadcrumbs li.current a {
   overflow: auto;
 }
 
-/* line 158, ../scss/app.scss */
+/* line 163, ../scss/app.scss */
 .ace_editor_preview #content_html {
   height: 492px;
 }
 
-/* line 162, ../scss/app.scss */
+/* line 167, ../scss/app.scss */
 #content_ace_editor {
   background: none repeat scroll 0 0 white;
   bottom: 1px;
@@ -5699,7 +5713,7 @@ ul#breadcrumbs li.current a {
 }
 
 /* Message flashing */
-/* line 172, ../scss/app.scss */
+/* line 177, ../scss/app.scss */
 .alert-container {
   position: fixed;
   width: 100%;

@@ -46,8 +46,13 @@ footer {
     #footer_links, #copyright { @include grid-column(6, $float:left); }
 }
 
+#main_container {
+    @include grid-column(10, $float:left);
+}
+
 /* Sidenav */
 div#sidenav {
+    @include grid-column(2, $float:left);
     padding: 0;
     border-right: 5px solid #F89F75;
     border-bottom: 4px solid #F89F75;
