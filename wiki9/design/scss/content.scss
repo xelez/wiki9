@@ -18,12 +18,13 @@
     font-size: 8pt;
     margin: 0;
     padding: 0;
-}
-#content TABLE TD {
-    border: 0 none;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
+
+    TD {
+        border: 0 none;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 #content P {
@@ -43,9 +44,9 @@ h3, .h3 { font-size: 11pt; }
 #content a {
     color: #9B350B;
     text-decoration: underline;
-}
 
-#content a:hover { text-decoration: none; }
+    &:hover { text-decoration: none; }
+}
 
 #content DIV.plusInfo {
     background: none repeat scroll 0 0 #FEDDBE;
@@ -141,34 +142,34 @@ h3, .h3 { font-size: 11pt; }
     border-right: 4px solid #9B350B;
     margin: 0 0 2em;
     width: 95%;
-}
+    
+    caption {
+        font-size: 7pt;
+        font-weight: bold;
+        padding: 0 0 5px;
+        text-align: left;
+    }
 
-#content table.data caption {
-    font-size: 7pt;
-    font-weight: bold;
-    padding: 0 0 5px;
-    text-align: left;
-}
+    tr {
+        text-align: left;
+    }
 
-#content table.data tr {
-    text-align: left;
-}
+    tr.l {
+        background: none repeat scroll 0 0 #FFEFE0;
+    }
 
-#content table.data tr.l {
-    background: none repeat scroll 0 0 #FFEFE0;
-}
+    th {
+        background: none repeat scroll 0 0 #9B350B;
+        border: 1px solid #9B350B;
+        color: #FEDDBE;
+        padding: 4px;
+        text-align: left;
+    }
 
-#content table.data th {
-    background: none repeat scroll 0 0 #9B350B;
-    border: 1px solid #9B350B;
-    color: #FEDDBE;
-    padding: 4px;
-    text-align: left;
-}
-
-#content table.data td {
-    border: 1px solid #9B350B;
-    padding: 4px;
+    td {
+        border: 1px solid #9B350B;
+        padding: 4px;
+    }
 }
 
 #content table tbody tr td {
@@ -177,32 +178,30 @@ h3, .h3 { font-size: 11pt; }
 
 #content .withTxt {
     margin: 2em;
+
+    &.left {
+        float: left;
+        margin: 15px 2em 15px 1em;
+    }
+
+    &.right {
+        float: right;
+        margin: 15px 1em 15px 2em;
+    }
+
+    TD.text {
+        color: #9B350B;
+        font-size: 8pt;
+        white-space: normal;
+    }
+
+    IMG {
+        display: block;
+        margin: 0 0 1em;
+    }
 }
 
-#content .withTxt.left {
-    float: left;
-    margin: 15px 2em 15px 1em;
-}
-
-#content .withTxt.right {
-    float: right;
-    margin: 15px 1em 15px 2em;
-}
-
-#content .withTxt TD.text {
-    color: #9B350B;
-    font-size: 8pt;
-    white-space: normal;
-}
-
-#content .withTxt IMG {
-    display: block;
-    margin: 0 0 1em;
-}
-
-#content DIV.left {
-    float: left;
-}
-#content DIV.right {
-    float: right;
+#content {
+    DIV.left { float: left; }
+    DIV.right { float: right; }
 }

@@ -5,6 +5,7 @@ from flask.ext.assets import Bundle
 site_css = Bundle(
     'css/normalize.css',
     'css/app.css',
+    'css/content.css',
     output = 'gen/site.css'
 )
 

@@ -17,13 +17,15 @@
   <meta name="author" content="Alex Ankudinov">
   
   {% block stylesheets %}
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.min.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+      {% assets "site_css" %}
+          <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+      {% endassets %}
       <link rel="stylesheet" href="{{ url_for('static', filename='dynatree/skin/ui.dynatree.css') }}">
   {% endblock stylesheets %} 
 
-  <script src="{{ url_for('static', filename='js/modernizr.foundation.js') }}"></script>
+  {% assets "head_js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+  {% endassets %}
 </head>
 <body>
   {% include 'inc/message-flashing.html' %}
