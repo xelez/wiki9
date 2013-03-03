@@ -39,6 +39,13 @@ header {
     }
 }
 
+/* Footer */
+footer {
+    @include grid-row();
+
+    #footer_links, #copyright { @include grid-column(6, $float:left); }
+}
+
 /* Sidenav */
 div#sidenav {
     padding: 0;

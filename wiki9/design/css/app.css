@@ -225,7 +225,7 @@ select {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 62.5em;
+  max-width: 100%;
   *zoom: 1;
 }
 /* line 152, ../../../../../../../var/lib/gems/1.8/gems/zurb-foundation-4.0.3/scss/foundation/_foundation-global.scss */
@@ -3247,7 +3247,7 @@ form.custom .custom.disabled {
 
   /* line 331, ../../../../../../../var/lib/gems/1.8/gems/zurb-foundation-4.0.3/scss/foundation/components/_top-bar.scss */
   .contain-to-grid .top-bar {
-    max-width: 62.5em;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -5093,7 +5093,7 @@ header {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 62.5em;
+  max-width: 100%;
   *zoom: 1;
   background-color: #9B350B;
   border-right: 4px solid #9b350b;
@@ -5137,25 +5137,54 @@ header #header_main {
   height: 125px;
 }
 
-/* Sidenav */
+/* Footer */
 /* line 43, ../scss/app.scss */
+footer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 100%;
+  *zoom: 1;
+}
+/* line 152, ../../../../../../../var/lib/gems/1.8/gems/zurb-foundation-4.0.3/scss/foundation/_foundation-global.scss */
+footer:before, footer:after {
+  content: " ";
+  display: table;
+}
+/* line 153, ../../../../../../../var/lib/gems/1.8/gems/zurb-foundation-4.0.3/scss/foundation/_foundation-global.scss */
+footer:after {
+  clear: both;
+}
+/* line 46, ../scss/app.scss */
+footer #footer_links, footer #copyright {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 50%;
+  float: left;
+}
+
+/* Sidenav */
+/* line 50, ../scss/app.scss */
 div#sidenav {
   padding: 0;
   border-right: 5px solid #f89f75;
   border-bottom: 4px solid #f89f75;
 }
-/* line 48, ../scss/app.scss */
+/* line 55, ../scss/app.scss */
 div#sidenav ul {
   list-style: none outside none;
   display: block;
   height: auto;
   padding: 0;
 }
-/* line 55, ../scss/app.scss */
+/* line 62, ../scss/app.scss */
 div#sidenav > ul {
   margin: 0;
 }
-/* line 58, ../scss/app.scss */
+/* line 65, ../scss/app.scss */
 div#sidenav > ul > li {
   display: block;
   float: none;
@@ -5163,21 +5192,21 @@ div#sidenav > ul > li {
   border-left: 4px solid #9b350b;
   border-right: 1px solid #9b350b;
 }
-/* line 65, ../scss/app.scss */
+/* line 72, ../scss/app.scss */
 div#sidenav > ul > li:last-child {
   border-bottom: 1px solid #9b350b;
 }
-/* line 69, ../scss/app.scss */
+/* line 76, ../scss/app.scss */
 div#sidenav > ul > li.active {
   border-bottom: 1px solid #9b350b;
 }
-/* line 72, ../scss/app.scss */
+/* line 79, ../scss/app.scss */
 div#sidenav > ul > li.active > a {
   background-color: #9B350B;
   border-bottom: none;
   color: #FEDDBE;
 }
-/* line 79, ../scss/app.scss */
+/* line 86, ../scss/app.scss */
 div#sidenav > ul > li > a {
   display: block;
   border-bottom: 1px solid #feddbe;
@@ -5188,24 +5217,24 @@ div#sidenav > ul > li > a {
   line-height: 1;
   padding: 10px 15px;
 }
-/* line 80, ../scss/app.scss */
+/* line 87, ../scss/app.scss */
 div#sidenav > ul > li > a:hover {
   background-color: #F8A076;
 }
 
-/* line 97, ../scss/app.scss */
+/* line 104, ../scss/app.scss */
 #sidenav ul ul li a:hover {
   color: #9B350B;
 }
 
-/* line 101, ../scss/app.scss */
+/* line 108, ../scss/app.scss */
 #sidenav ul ul li.active > a {
   color: #9B350B;
   font-weight: bold;
   text-decoration: none;
 }
 
-/* line 107, ../scss/app.scss */
+/* line 114, ../scss/app.scss */
 #sidenav ul ul li a {
   font-size: 11px;
   text-decoration: underline;
@@ -5213,26 +5242,26 @@ div#sidenav > ul > li > a:hover {
 }
 
 /* Breadcrumbs */
-/* line 115, ../scss/app.scss */
+/* line 122, ../scss/app.scss */
 ul#breadcrumbs {
   padding: 6px 10px 7px 0;
   border: none;
   background: none;
 }
-/* line 121, ../scss/app.scss */
+/* line 128, ../scss/app.scss */
 ul#breadcrumbs li a, ul#breadcrumbs li span {
   font-size: 1.8rem;
   font-weight: bold;
   text-transform: none;
 }
-/* line 127, ../scss/app.scss */
+/* line 134, ../scss/app.scss */
 ul#breadcrumbs li.current a {
   text-decoration: none;
   color: #000000;
 }
 
 /* Ace eitor */
-/* line 136, ../scss/app.scss */
+/* line 143, ../scss/app.scss */
 .ace_editor_wrapper {
   border: 1px solid #dddddd;
   border-radius: 4px 4px 0 4px;
@@ -5241,7 +5270,7 @@ ul#breadcrumbs li.current a {
   position: relative;
 }
 
-/* line 144, ../scss/app.scss */
+/* line 151, ../scss/app.scss */
 .ace_editor_preview {
   height: 512px;
   margin-top: 1px;
@@ -5249,12 +5278,12 @@ ul#breadcrumbs li.current a {
   overflow: auto;
 }
 
-/* line 151, ../scss/app.scss */
+/* line 158, ../scss/app.scss */
 .ace_editor_preview #content_html {
   height: 492px;
 }
 
-/* line 155, ../scss/app.scss */
+/* line 162, ../scss/app.scss */
 #content_ace_editor {
   background: none repeat scroll 0 0 white;
   bottom: 1px;
@@ -5264,7 +5293,7 @@ ul#breadcrumbs li.current a {
 }
 
 /* Message flashing */
-/* line 165, ../scss/app.scss */
+/* line 172, ../scss/app.scss */
 .alert-container {
   position: fixed;
   width: 100%;
