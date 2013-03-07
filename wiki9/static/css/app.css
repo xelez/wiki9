@@ -1,0 +1,41 @@
+/* Ace eitor */
+
+.ace_editor_wrapper {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 0 4px;
+    height: 512px;
+    margin-top: 1px;
+    position: relative;
+}
+
+.ace_editor_preview {
+    height: 512px;
+    margin-top: 1px;
+    position: relative;
+    overflow: auto;
+}
+
+.ace_editor_preview #content_html {
+    height: 492px;
+}
+
+#content_ace_editor {
+    background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 1px;
+    left: 0;
+    right: 1px;
+    top: 0;
+}
+
+/* Message flashing */
+
+.alert-container {
+    position: fixed;
+    width: 100%;
+    top : 0px;
+    left: 0px;
+    right: 0px;
+    padding: 10px;
+    z-index: 10;
+    text-align: center;
+}
