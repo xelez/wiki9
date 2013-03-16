@@ -1,58 +1,54 @@
-{% extends 'layout/manage.html' %}
+{% extends 'admin/master.html' %}
 
-{% block content %}
-<div class="twelve columns">
+{% block head_css %}
+    {{ super() }}
+    {% assets "site_css" %}
+        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" >
+    {% endassets %}
+{% endblock head_css %}
+
+{% block body %}
     <form id="edit_form" action="" method="POST" class="form">
     {{ form.hidden_tag() }}
     {{ form.content(id="content_textarea", style="display: none;")}}
     
-    <div class="row collapse">
-        <div class="ten mobile-three columns">
-            {{ form.path(placeholder="/path/to/page") }}
+        <div class="input-append">
+            {{ form.path(placeholder="/path/to/page", class="span5") }}
+            {{ form.title(placeholder="Название", class="span5") }}
+            <button type="submit" class="btn">Сохранить</button>
         </div>
-        <div class="two mobile-one columns">
-            <button type="submit" class="button expand postfix">Сохранить</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="six columns">
-            {{ form.title(placeholder="Название") }}
-        </div>
-        <div class="six columns">
-            <dl class="tabs">
-              <dd class="active"><a href="#preview">Предпросмотр</a></dd>
-              <dd><a href="#html">HTML</a></dd>
-              <dd><a href="#help">Справка</a></dd>
-            </dl>
-        </div>
-    </div>
-    <div class="row">
-        <div class="six columns">
+    <div class="row-fluid">
+        <div class="span6">
             <div class="ace_editor_wrapper">
                 <div id="content_ace_editor"></div>
             </div>
         </div>
-        <div class="six columns"><div class="ace_editor_preview">
-            <ul class="tabs-content">
-              <li class="active" id="previewTab">
-                <div id="content"></div>
-              </li>
-              <li id="htmlTab">
-                <textarea id="content_html" readonly>
-                </textarea>
-              </li>
-              <li id="helpTab">
-                {% include 'doc/markdown.html' %}
-              </li>
-            </ul>
+        <div class="span6"><div class="ace_editor_preview">
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#previewTab" data-toggle="tab">Предпросмотр</a></li>
+                    <li><a href="#htmlTab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#helpTab" data-toggle="tab">Справка</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="previewTab">
+                        <div id="content"></div>
+                    </div>
+                    <div class="tab-pane" id="htmlTab">
+                        <textarea class="input-block-level" id="content_html" readonly>
+                        </textarea>
+                    </div>
+                    <div class="tab-pane" id="helpTab">
+                        {% include 'doc/markdown.html' %}
+                    </div>
+                </div>
+            </div>
         </div></div>
     </div>
     </form>
-</div>
-{% endblock content %}
+{% endblock body %}
 
-{% block scripts %}
-    {{ super() }}
+{% block tail %}
     <script src="{{ url_for('static', filename='ace/ace.js') }}"></script>
     
     <script language="javascript">
@@ -94,5 +90,4 @@
         });
 
     </script>
-    
-{% endblock scripts %}
+{% endblock tail %}
