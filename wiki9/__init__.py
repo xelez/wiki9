@@ -22,10 +22,13 @@ assets_loader = PythonAssetsLoader(assets)
 for name, bundle in assets_loader.load_bundles().iteritems():
     assets_env.register(name, bundle)
 
-admin = Admin(app);
-admin.add_view(FileAdmin(app.static_folder, '/static/', name='Static Files'))
-
 mongo = PyMongo()
 mongo.init_app(app)
+
+from wiki9.manage import MyFileAdmin, PagesAdmin
+admin = Admin(app, name='Wiki9 Manage', url='/manage');
+admin.add_view(PagesAdmin(name='Pages', endpoint='pages'))
+admin.add_view(MyFileAdmin(app.static_folder, '/static/', endpoint='files', name='Static Files'))
+
 
 import wiki9.views
