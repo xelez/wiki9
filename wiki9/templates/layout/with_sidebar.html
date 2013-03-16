@@ -1,11 +1,11 @@
 {% extends 'layout/site.html' %}
 
 {% block main %}
-  <div class="row" >
-    <div id="sidenav">
+  <div class="row-fluid" >
+    <div class="span3">
         {% include 'inc/sidenav.html' %}
     </div>
-    <div id="main_container">
+    <div class="span9">
         {% block content %}
         {% endblock content %}
     </div> 

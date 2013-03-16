@@ -6,11 +6,7 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
-
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
-
+  <meta charset="utf-8">
   <title>{% block title %}{{ title | d('school9.perm.ru') }}{% endblock %}</title>  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="school9.perm.ru - сайт школы №9 г. Перми">
@@ -18,32 +14,23 @@
   
   {% block stylesheets %}
       {% assets "site_css" %}
-          <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+          <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" >
       {% endassets %}
-      <link rel="stylesheet" href="{{ url_for('static', filename='dynatree/skin/ui.dynatree.css') }}">
   {% endblock stylesheets %} 
-
-  {% assets "head_js" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-  {% endassets %}
 </head>
 <body>
   {% include 'inc/message-flashing.html' %}
   
+  <div class="container-fluid">
   {% block layout_body %}
   {% endblock layout_body %}
+  </div>
 
-  {% block scripts %} 
-      <!-- Included JS Files (Compressed) -->
-      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/foundation.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/jquery-ui.custom.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/jquery.cookie.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/jquery.dynatree.min.js') }}"></script>
-        
-      <!-- Initialize Foundation JS Plugins -->
-      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-      
+  {% block scripts %}
+      {% assets "all_js" %}
+          <script src="{{ ASSET_URL }}"></script>
+      {% endassets %}
+     
       <!-- Wiki9 js code !-->
       <script src="{{ url_for('static', filename='js/wiki9.js') }}"></script>
   {% endblock scripts %}
