@@ -4,6 +4,7 @@ from flask.ext.assets import Bundle
 
 site_css = Bundle(
     'vendor/bootstrap/css/bootstrap.css',
+    'vendor/bootstrap/css/bootstrap-responsive.css',
     'css/app.css',
     'css/content.css',
     output = 'gen/site.css'
