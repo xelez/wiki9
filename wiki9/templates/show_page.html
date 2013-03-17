@@ -1,27 +1,29 @@
 {% extends 'layout/with_sidebar.html' %}
 
 {% block content %}
-    <ul class="breadcrumb">
-    {% for t in page['breadcrumbs'] if (t is defined) %}
-        {% if loop.last %}
-            <li class="active">
-                {{ t['title'] }}
+    <div class="row-fluid">
+        <ul class="breadcrumb pull-left">
+        {% for t in page['breadcrumbs'] if (t is defined) %}
+            {% if loop.last %}
+                <li class="active">
+                    {{ t['title'] }}
+                </li>
+            {% else %}
+            <li>
+                <a href="{{ url_for('show_page', path=t['path']) }}">{{ t['title'] }}</a>
+                <span class="divider">/</span>
             </li>
-        {% else %}
-        <li>
-            <a href="{{ url_for('show_page', path=t['path']) }}">{{ t['title'] }}</a>
-            <span class="divider">/</span>
-        </li>
-        {% endif %}
-    {% endfor %}
-    </ul>
-
-    {% if is_root() %}
-        <ul class="button-group radius right">
-            <li><a href="{{ url_for('pages.edit', path=page['path']) }}" class="tiny radius button">Редактировать</a></li>
-            <li><a href="{{ url_for('pages.delete', path=page['path']) }}" class="tiny raduis button">Удалить</a></li>
+            {% endif %}
+        {% endfor %}
         </ul>
-    {% endif %}
+
+        {% if is_root() %}
+            <div class="btn-group pull-right">
+                <a href="{{ url_for('pages.edit', path=page['path']) }}" class="btn">Редактировать</a>
+                <a href="{{ url_for('pages.delete', path=page['path']) }}" class="btn">Удалить</a>
+            </div>
+        {% endif %}
+    </div>
     
     <div id="content">
         {{ page["html"] | safe }}
