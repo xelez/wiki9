@@ -31,12 +31,12 @@
 
 {% block tail %}
     <script language="javascript">
-        var base_url = '{{ url_for("index") }}';
+        var base_url = '{{ url_for(".edit", path="__path__") }}';
 
         $('#create_page').on('click', function() {
             var path = $('#new_path').val();
             if (path) {
-                window.location = base_url + path + '/edit';
+                window.location = base_url.replace('__path__', path);
             }
         })
     </script>
