@@ -9,7 +9,6 @@ from flask.ext.assets import Environment as AssetsEnvironment
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from flask.ext.admin import Admin
-from flask.ext.admin.contrib.fileadmin import FileAdmin
 
 import config
 app = Flask(__name__)
