@@ -46,12 +46,6 @@ def show_page(path='main'):
 
     return render_template('show_page.html', sidenav=sidenav, page=page)
 
-@app.route('/ajax/preview', methods=['POST'])
-@root_required
-def ajax_preview():
-    text =  request.form.get('markdown', '');
-    return wiki.markdown_to_html(text)
-
 
 ## temp; server files from storage
 from flask import send_from_directory

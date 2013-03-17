@@ -8,7 +8,7 @@ from flask.ext.admin import BaseView, expose
 from flask.ext.admin.contrib.fileadmin import FileAdmin
 from flask.ext import wtf
 
-from flask import flash, redirect, url_for
+from flask import flash, redirect, url_for, request
 
 class EditPageForm(wtf.Form):
     path    = wtf.TextField(u"Адрес", [wtf.validators.Required()])
@@ -50,4 +50,11 @@ class PagesAdmin(MyBaseView):
         wiki.delete_page(path)
         flash(u"Страница удалена", "success")
         return redirect(url_for('.list'))
+
+    @expose('/preview', methods=['POST'])
+    def preview(self):
+        text =  request.form.get('markdown', '');
+        return wiki.markdown_to_html(text)
+
+
      

@@ -69,7 +69,7 @@
 
         // preview from server
         var refresh_delay = 1800;
-        var preview_url = '{{ url_for('ajax_preview') }}';
+        var preview_url = '{{ url_for(".preview") }}';
         var delayTimer;
 
         function update_preview() {
