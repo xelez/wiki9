@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
+from wiki9 import mongo
+
 import markdown
 import time
 #from bs4 import BeautifulSoup
 
-from wiki9 import mongo
-
 md = markdown.Markdown(
-        extensions = ['extra', 'meta', 'toc'], 
-        safe_mode = False,
-        output_format='html5'
+    extensions = ['extra', 'meta', 'toc'], 
+    safe_mode = False,
+    output_format='html5'
 )
 
 def markdown_to_html(text):
@@ -58,3 +58,7 @@ def get_page(path):
         page = save_page(page['path'], page['title'], page['content'])
     
     return page
+
+def list_pages():
+    return mongo.db['pages'].find({}).sort('path')
+    

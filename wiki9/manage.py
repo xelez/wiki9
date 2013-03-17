@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from wiki9 import mongo
 from wiki9 import auth
 from wiki9 import wiki
 
@@ -28,12 +27,12 @@ class MyFileAdmin(FileAdmin):
 class PagesAdmin(MyBaseView):
     @expose('/')
     def list(self):
-        pages = mongo.db['pages'].find({}).sort('path')
+        pages = wiki.list_pages()
         return self.render('manage/list_pages.html', pages=pages)
 
     @expose('/edit/<path:path>/', methods=['GET', 'POST'])
     def edit(self, path):
-        page = mongo.db['pages'].find_one({'path': path})
+        page = wiki.get_page(path)
         if page is None:
             page = {'path': path, 'title': '', 'content': ''}
 
