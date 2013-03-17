@@ -5,7 +5,7 @@ from wiki9.auth import root_required, is_root, login_user, logout_user
 from wiki9.utils import RedirectBackForm, redirect_back
 from wiki9 import wiki
 
-from flask import request, session, url_for, redirect, render_template, jsonify, safe_join, abort, g, flash
+from flask import url_for, redirect, render_template, abort, flash
 from flask.ext import wtf
 
 class LoginForm(RedirectBackForm):
