@@ -47,5 +47,5 @@ class PagesAdmin(MyBaseView):
     def delete(self, path):
         wiki.delete_page(path)
         flash(u"Страница удалена", "success")
-        return redirect(url_for('list_pages'))
+        return redirect(url_for('.list'))
      
