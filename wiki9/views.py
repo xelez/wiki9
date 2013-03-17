@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from wiki9 import app
-from wiki9.auth import root_required, is_root, login_user, logout_user
+from wiki9.auth import is_root, login_user, logout_user
 from wiki9.utils import RedirectBackForm, redirect_back
 from wiki9 import wiki
 
@@ -22,13 +22,12 @@ def login():
     if form.validate_on_submit():
         if login_user(form.login.data, form.password.data):
             flash(u"Добро пожаловать", 'success')
-            return form.redirect_back()
+            return redirect(url_for('index'))
         else:
             flash(u"Неверный логин или пароль", 'alert')
     return render_template('login.html', form=form)
 
 @app.route('/logout')
-@root_required
 def logout():
     logout_user()
     return redirect_back()
