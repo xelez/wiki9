@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from wiki9 import app, mongo
+from wiki9 import app
 from wiki9.auth import root_required, is_root, login_user, logout_user
 from wiki9.utils import RedirectBackForm, redirect_back
 from wiki9 import wiki
@@ -41,7 +41,7 @@ def show_page(path='main'):
     if page.has_key('redirect'):
         return redirect(page['redirect'])
    
-    sidenav = mongo.db['pages'].find_one({'path': 'sidenav'})
+    sidenav = wiki.get_page('sidenav')
     if not sidenav: sidenav = {}
 
     return render_template('show_page.html', sidenav=sidenav, page=page)
