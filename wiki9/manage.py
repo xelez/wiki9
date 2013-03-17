@@ -20,6 +20,8 @@ class MyBaseView(BaseView):
         return auth.is_root()
 
 class MyFileAdmin(FileAdmin):
+    editable_extensions = ('md', 'html', 'txt')
+
     def is_accessible(self):
         return auth.is_root()
 
