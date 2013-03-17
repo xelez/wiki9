@@ -2,11 +2,15 @@
 
 from wiki9 import app, mongo
 from wiki9.auth import root_required, is_root, login_user, logout_user
-from wiki9.utils import redirect_back
-from wiki9.forms import LoginForm
+from wiki9.utils import RedirectBackForm, redirect_back
 from wiki9 import wiki
 
 from flask import request, session, url_for, redirect, render_template, jsonify, safe_join, abort, g, flash
+from flask.ext import wtf
+
+class LoginForm(RedirectBackForm):
+    login    = wtf.TextField(u"Логин", [wtf.validators.Required()])
+    password = wtf.PasswordField(u"Пароль", [wtf.validators.Required()])
 
 @app.route('/')
 def index():
