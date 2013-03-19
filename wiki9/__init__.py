@@ -30,4 +30,6 @@ admin.add_view(PagesAdmin(name='Pages', endpoint='pages'))
 admin.add_view(MyFileAdmin(app.config['FILE_DIRECTORY'], '/', endpoint='files', name='Files'))
 
 import wiki9.views
-import wiki9.file_views
+
+if app.config['SERVE_FILES']:
+    import wiki9.file_views
