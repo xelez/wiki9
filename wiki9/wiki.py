@@ -7,7 +7,7 @@ import time
 #from bs4 import BeautifulSoup
 
 md = markdown.Markdown(
-    extensions = ['extra', 'meta', 'toc'], 
+    extensions = ['extra', 'meta', 'toc', 'fenced_code', 'codehilite'], 
     safe_mode = False,
     output_format='html5'
 )

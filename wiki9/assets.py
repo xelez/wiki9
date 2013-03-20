@@ -7,6 +7,7 @@ site_css = Bundle(
     'vendor/bootstrap/css/bootstrap-responsive.css',
     'css/app.css',
     'css/content.css',
+    'css/pygments_style.css',
     output = 'gen/site.css'
 )
 
