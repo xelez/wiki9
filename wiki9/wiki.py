@@ -44,6 +44,10 @@ def save_page(path, title, text):
     if redirect:
         page['redirect'] = redirect[0]
     
+    #TODO: this is a hack, needs fixing
+    if page['path'] == 'sidenav':
+        page['html'] = page['html'].replace('<ul>', '<ul class="nav nav-pills nav-stacked">', 1)
+        
     mongo.db['pages'].update({'path': page['path']}, page, upsert=True)
     return page
 
