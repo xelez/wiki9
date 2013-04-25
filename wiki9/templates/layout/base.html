@@ -21,6 +21,10 @@
 <body>
   {% include 'inc/message-flashing.html' %}
   
+  {% if is_root() -%}
+    {% include 'inc/root-nav.html' %}
+  {%- endif %}
+  
   <div class="container-fluid">
   {% block layout_body %}
   {% endblock layout_body %}
