@@ -15,6 +15,9 @@ app = Flask(__name__)
 app.config.from_object(config)
 app.config.from_envvar('WIKI9_SETTINGS', silent=True)
 
+from utils import ReverseProxied
+app.wsgi_app = ReverseProxied(app.wsgi_app)
+
 import assets
 assets_env = AssetsEnvironment(app)
 assets_loader = PythonAssetsLoader(assets)
