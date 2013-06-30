@@ -12,7 +12,7 @@
         <tbody>
             {% for page in pages %}
             <tr>
-                <td><a href="{{ '/' + page['path'] }}">{{ page['path'] }}</a></td>
+                <td><a href="{{ url_for('show_page', path=page['path']) }}">{{ page['path'] }}</a></td>
                 <td>{{ page['title'] }}</td>
                 <td><div class="btn-group">
                     <a href="{{ url_for('.edit', path=page['path']) }}" class="btn"><i class="icon-pencil"></i> Редактировать</a>
