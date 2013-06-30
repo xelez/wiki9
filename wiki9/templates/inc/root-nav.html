@@ -3,8 +3,8 @@
         <a class="brand" href="/">SICamp</a>
         <ul class="nav">
             <li class="active"><a href="/">Сайт</a></li>
-            <li><a href="/manage/pages">Manage</a></li>
-            <li><a href="/logout">Выйти</a></li>
+            <li><a href="{{ url_for('pages.list') }}">Manage</a></li>
+            <li><a href="{{ url_for('logout') }}">Выйти</a></li>
         </ul>
     </div>
 </div>
